@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 
 namespace TestApp1
 {
@@ -15,6 +17,8 @@ namespace TestApp1
         private const string chrome = "CH";
         private const string firefox = "FF";
         private const string internetExplorer = "IE";
+        private const string edge = "Edge";
+
 
         private static IWebDriver driver = null;
 
@@ -35,6 +39,11 @@ namespace TestApp1
                 else if (TestConfigurations.Browser == internetExplorer)
                 {
                     return new InternetExplorerDriver();
+                }
+                else if (TestConfigurations.Browser == edge)
+                {
+                    new DriverManager().SetUpDriver(new EdgeConfig());
+                   
                 }
                 else
                 {

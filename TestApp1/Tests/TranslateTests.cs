@@ -25,7 +25,6 @@ namespace TestApp1
         [TestCase("пес", ExpectedResult = "dog")]
         public string Test1_EnglishToRusish(string input)
         {
-            TranslatePage translatePage = new TranslatePage(driver);
             translatePage.TranslatePhrase(input);
             return translatePage.SecondTextArea.Text;
         }

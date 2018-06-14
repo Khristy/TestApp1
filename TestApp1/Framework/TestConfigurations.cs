@@ -39,7 +39,6 @@ namespace TestApp1
         {
             if (configs == null)
             {
-                GetConfigFilePath();
                 GetConfigs();
             }
             return configs;

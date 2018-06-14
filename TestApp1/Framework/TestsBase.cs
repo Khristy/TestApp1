@@ -21,14 +21,12 @@ namespace TestApp1.Framework
     public void BaseOneTimeSetUp()
     {
         driver = WebDriverFactory.GetInstance();
-
         OneTimeSetUp();
     }
 
-     public virtual void OneTimeSetUp()
-     {
-           
-     }
+        public virtual void OneTimeSetUp()
+        { }
+     
 
     [SetUp]
     public void BaseSetUp()
@@ -44,10 +42,8 @@ namespace TestApp1.Framework
             TearDown();
     }
 
-     public virtual void TearDown()
-     {
-      
-     }
+     public void TearDown()
+    { }
 
     [OneTimeTearDown]
     public void BaseOneTimeTearDown()
