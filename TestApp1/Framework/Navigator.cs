@@ -26,7 +26,7 @@ namespace TestApp1.PageObjects
 
         public static EMailBoxPage OpenPassportPage(this IWebDriver driver)
         {
-            driver.Navigate().GoToUrl("https://i.ua/");
+            driver.Navigate().GoToUrl("http://www.i.ua/");
             HomePage homePage = new HomePage(driver);
             homePage.LogIn();
             return new EMailBoxPage(driver);

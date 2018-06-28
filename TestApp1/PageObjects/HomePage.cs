@@ -18,7 +18,7 @@ namespace TestApp1.PageObjects
 
         public IWebElement LoginInput => driver.FindElement(By.Name("login"));
         public IWebElement PassInput => driver.FindElement(By.Name("pass"));
-        public IWebElement SendButton =>  driver.FindElement(By.XPath("//input[@value='Увійти']"));
+        public IWebElement SendButton =>  driver.FindElement(By.XPath("//input[@value='Войти']"));
 
         public IWebElement TranstaleLink => driver.FindElement(By.LinkText("Перекладач"));
 

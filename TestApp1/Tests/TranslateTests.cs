@@ -29,9 +29,9 @@ namespace TestApp1
             return translatePage.SecondTextArea.Text;
         }
 
-        public override void TearDown()
-        {
-            translatePage.FirstTextArea.Clear();
-        }
+        //public override void ExtendedTearDown()
+        //{
+        //    translatePage.FirstTextArea.Clear();
+        //}
     }
 }

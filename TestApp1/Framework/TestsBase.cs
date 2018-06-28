@@ -43,9 +43,20 @@ namespace TestApp1.Framework
     }
 
      public void TearDown()
-    { }
+    {
+            if (TestContext.CurrentContext.Result.Outcome.Status.Equals("Failed"))
+            {
+                TakesScreenshot();
+            }
 
-    [OneTimeTearDown]
+        }
+
+        private void TakesScreenshot()
+        {
+            throw new NotImplementedException();
+        }
+
+        [OneTimeTearDown]
     public void BaseOneTimeTearDown()
     {
         driver.Quit();
