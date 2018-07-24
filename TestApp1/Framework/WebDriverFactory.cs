@@ -20,7 +20,7 @@ namespace TestApp1
         private const string edge = "Edge";
 
 
-        private static IWebDriver driver = null;
+        private static IWebDriver driver;
 
         public static IWebDriver GetInstance()
         {
@@ -30,20 +30,15 @@ namespace TestApp1
 
                 if (TestConfigurations.Browser == chrome)
                 {
-                    return new ChromeDriver();
+                   driver = new ChromeDriver();
                 }
                 else if (TestConfigurations.Browser == firefox)
                 {
-                    return new FirefoxDriver();
+                    driver = new FirefoxDriver();
                 }
                 else if (TestConfigurations.Browser == internetExplorer)
                 {
-                    return new InternetExplorerDriver();
-                }
-                else if (TestConfigurations.Browser == edge)
-                {
-                    new DriverManager().SetUpDriver(new EdgeConfig());
-                   
+                    driver = new InternetExplorerDriver();
                 }
                 else
                 {

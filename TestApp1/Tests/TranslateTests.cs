@@ -19,9 +19,10 @@ namespace TestApp1
         public override void OneTimeSetUp()
         {
         translatePage = Navigator.OpenTranslatePage(driver);
+       
         }
 
-        [TestCase("кот", ExpectedResult = "ca")]
+        [TestCase("кот", ExpectedResult = "cat")]
         [TestCase("пес", ExpectedResult = "dog")]
         public string Test1_EnglishToRusish(string input)
         {
@@ -29,9 +30,9 @@ namespace TestApp1
             return translatePage.SecondTextArea.Text;
         }
 
-        //public override void ExtendedTearDown()
-        //{
-        //    translatePage.FirstTextArea.Clear();
-        //}
+        public override void TearDown()
+        {
+            translatePage.FirstTextArea.Clear();
+        }
     }
 }

@@ -15,7 +15,9 @@ namespace TestApp1
         public static string Password;
         public static string Environment;
 
-        public static TestConfigurations configs;
+        private static TestConfigurations configs;
+        private static readonly object obj = new object();
+
 
         private static string GetConfigFilePath()
         {
@@ -24,7 +26,7 @@ namespace TestApp1
             return Path.Combine(path, "MyTestConfigs.xml");
         }
 
-        public static void GetConfigs()
+        private static void GetConfigs()
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(GetConfigFilePath());
@@ -39,7 +41,14 @@ namespace TestApp1
         {
             if (configs == null)
             {
-                GetConfigs();
+                lock (obj)
+                {
+                    if (configs == null)
+                    {
+                        GetConfigs();
+                        configs = new TestConfigurations();
+                    }
+                }
             }
             return configs;
         }

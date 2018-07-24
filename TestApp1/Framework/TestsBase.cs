@@ -16,10 +16,13 @@ namespace TestApp1.Framework
     { 
 
     public IWebDriver driver;
+    //string testname =  TestContext.CurrentContext.Test.Name;
 
     [OneTimeSetUp]
     public void BaseOneTimeSetUp()
     {
+       Logger.InitLogger();
+
         driver = WebDriverFactory.GetInstance();
         OneTimeSetUp();
     }
@@ -31,25 +34,36 @@ namespace TestApp1.Framework
     [SetUp]
     public void BaseSetUp()
     {
+            Console.WriteLine("---------------------------------");
             Console.WriteLine(TestContext.CurrentContext.Test.Name);
+            SetUp();
     }
 
+     public  virtual void SetUp()
+     {
+            
+     }
 
     [TearDown]
     public void BaseTearDown()
     {
             Console.WriteLine(TestContext.CurrentContext.Result.Outcome.Status);
+            Console.WriteLine("---------------------------------");
+
+            if (TestContext.CurrentContext.Result.Outcome.Status.ToString().Equals("Failed"))
+            {
+                Logger.Log.Error(testname); 
+                TakesScreenshot();
+                
+            }
+
             TearDown();
     }
 
-     public void TearDown()
+    public virtual void TearDown()
     {
-            if (TestContext.CurrentContext.Result.Outcome.Status.Equals("Failed"))
-            {
-                TakesScreenshot();
-            }
 
-        }
+    }
 
         private void TakesScreenshot()
         {
