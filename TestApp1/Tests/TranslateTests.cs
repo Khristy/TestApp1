@@ -12,6 +12,7 @@ using TestApp1.PageObjects;
 namespace TestApp1
 { 
     [TestFixture]
+    [Category("TranslateFunctionality")]
     class TranslateTests : TestBase
     { 
         TranslatePage translatePage;

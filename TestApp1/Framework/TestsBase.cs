@@ -53,8 +53,7 @@ namespace TestApp1.Framework
             if (TestContext.CurrentContext.Result.Outcome.Status.ToString().Equals("Failed"))
             {
                 Logger.Log.Error(TestContext.CurrentContext.Test.Name); 
-                TakesScreenshot();
-                
+                TakesScreenshot();               
             }
 
             TearDown();
@@ -70,7 +69,7 @@ namespace TestApp1.Framework
             throw new NotImplementedException();
         }
 
-        [OneTimeTearDown]
+    [OneTimeTearDown]
     public void BaseOneTimeTearDown()
     {
         driver.Quit();
