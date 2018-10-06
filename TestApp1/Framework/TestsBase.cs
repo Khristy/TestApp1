@@ -12,23 +12,23 @@ using TestApp1.PageObjects;
 namespace TestApp1.Framework
 {
 
-    public class TestBase
+    public abstract class TestBase
     { 
 
     public IWebDriver driver;
     //string testname =  TestContext.CurrentContext.Test.Name;
 
-    [OneTimeSetUp]
-    public void BaseOneTimeSetUp()
-    {
-       Logger.InitLogger();
+    //[OneTimeSetUp]
+    //public void BaseOneTimeSetUp()
+    //{
+    //   Logger.InitLogger();
 
-        driver = WebDriverFactory.GetInstance();
-        OneTimeSetUp();
-    }
+    //    driver = WebDriverFactory.GetInstance();
+    //    OneTimeSetUp();
+    //}
 
-        public virtual void OneTimeSetUp()
-        { }
+    //    public virtual void OneTimeSetUp()
+    //    { }
      
 
     [SetUp]

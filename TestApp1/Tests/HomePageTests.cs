@@ -19,7 +19,7 @@ namespace TestApp1
     {
 
         [Test]
-        public void PageTitle()
+        public void HomePageTitle()
         {
             IWebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("http://www.i.ua/");

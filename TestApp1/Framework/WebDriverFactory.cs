@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,11 +31,20 @@ namespace TestApp1
 
                 if (TestConfigurations.Browser == chrome)
                 {
-                   driver = new ChromeDriver();
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.AcceptInsecureCertificates = true;
+                    driver = new ChromeDriver();
                 }
                 else if (TestConfigurations.Browser == firefox)
                 {
-                    driver = new FirefoxDriver();
+                    var profileManager = new FirefoxProfileManager();
+                    FirefoxProfile profile = profileManager.GetProfile("myNewProfile");
+                    profile.AcceptUntrustedCertificates = true;
+
+
+                    FirefoxOptions options = new FirefoxOptions();
+                    options.Profile = profile;
+                    driver = new FirefoxDriver(options);
                 }
                 else if (TestConfigurations.Browser == internetExplorer)
                 {
