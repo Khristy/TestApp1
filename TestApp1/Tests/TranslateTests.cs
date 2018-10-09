@@ -85,7 +85,23 @@ namespace TestApp1
         [AllureFeature("Core")]
         public void Test1()
         {
+            //AllureLifecycle.Instance.StartStep(() => _driver.Close());
+
+            IWebDriver driver = new ChromeDriver();
+            driver.Navigate().GoToUrl("https://google.com");
+            AllureLifecycle.Instance.WriteTestCase("TC1");
+            AllureLifecycle.Instance.WriteTestCase("TC2");
             Assert.True(true);
+        }
+
+        public void Step1()
+        {
+           
+        }
+
+        public void Step2()
+        {
+            
         }
     }
 
